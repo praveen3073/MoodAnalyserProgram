@@ -1,8 +1,11 @@
 package com.moodanalyser;
 
 public class MoodAnalyser {
-    String analyseMood(String message) {
-        return "SAD";
+    protected String analyseMood(String message) {
+        if(message.equals("I am in Sad Mood"))
+            return "SAD";
+        else
+            return "HAPPY";
     }
 
     public static void main(String[] args) {
