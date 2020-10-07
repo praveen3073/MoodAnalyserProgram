@@ -6,15 +6,15 @@ import org.junit.Test;
 public class MoodAnalyserTest {
     @Test
     public void givenMessage_WhenSadMood_ShouldReturnSAD() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String result = moodAnalyser.analyseMood("I am in Sad Mood");
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad Mood");
+        String result = moodAnalyser.analyseMood();
         Assert.assertEquals("SAD", result);
     }
 
     @Test
     public void givenMessage_WhenNotSadMood_ShouldReturnHAPPY() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String result = moodAnalyser.analyseMood("I am in Any Mood");
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Any Mood");
+        String result = moodAnalyser.analyseMood();
         Assert.assertEquals("HAPPY", result);
     }
 }
