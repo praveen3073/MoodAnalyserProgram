@@ -1,5 +1,17 @@
 package com.moodanalyser;
 
+enum MoodAnalyserErrorMessage {
+    NULLMESSAGE("Null Mood Error"), EMPTYMESSAGE("Empty Mood Error");
+    private final String message;
+
+    public String getMessage() {
+        return message;
+    }
+    private MoodAnalyserErrorMessage(String message) {
+        this.message = message;
+    }
+}
+
 public class MoodAnalyser {
     private String message;
 
@@ -15,15 +27,16 @@ public class MoodAnalyser {
         System.out.println("Welcome to Mood Analyser Program");
     }
 
-    protected String analyseMood() {
+    protected String analyseMood() throws MoodAnalysisException {
         try {
-            if (message.equals("I am in Sad Mood"))
+            if (message.isEmpty()) {
+                throw new MoodAnalysisException(MoodAnalyserErrorMessage.EMPTYMESSAGE.getMessage(), "HAPPY");
+            } else if (message.contains("Sad"))
                 return "SAD";
             else
                 return "HAPPY";
         } catch (RuntimeException e) {
-            e.printStackTrace();
+            throw new MoodAnalysisException(MoodAnalyserErrorMessage.NULLMESSAGE.getMessage(), "HAPPY");
         }
-        return "HAPPY";
     }
 }
