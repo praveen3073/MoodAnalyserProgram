@@ -43,4 +43,12 @@ public class MoodAnalyserTest {
         expectedEx.expectMessage("Null Mood Error");
         moodAnalyser.analyseMood();
     }
+
+    @Test
+    public void givenMessage_WhenEmpty_ShouldReturnMoodAnalysisException() throws MoodAnalysisException{
+        MoodAnalyser moodAnalyser = new MoodAnalyser("");
+        expectedEx.expect(MoodAnalysisException.class);
+        expectedEx.expectMessage("Empty Mood Error");
+        moodAnalyser.analyseMood();
+    }
 }
