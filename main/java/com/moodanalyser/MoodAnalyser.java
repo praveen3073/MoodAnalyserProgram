@@ -4,11 +4,12 @@ enum MoodAnalyserErrorMessage {
     NULLMESSAGE("Null Mood Error"), EMPTYMESSAGE("Empty Mood Error");
     private final String message;
 
+    MoodAnalyserErrorMessage(String message) {
+        this.message = message;
+    }
+
     public String getMessage() {
         return message;
-    }
-    private MoodAnalyserErrorMessage(String message) {
-        this.message = message;
     }
 }
 
@@ -35,8 +36,10 @@ public class MoodAnalyser {
                 return "SAD";
             else
                 return "HAPPY";
-        } catch (RuntimeException e) {
+        } catch (NullPointerException e) {
             throw new MoodAnalysisException(MoodAnalyserErrorMessage.NULLMESSAGE.getMessage(), "HAPPY");
+        } catch (MoodAnalysisException e) {
+            throw e;
         }
     }
 }
