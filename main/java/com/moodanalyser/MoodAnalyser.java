@@ -24,6 +24,6 @@ public class MoodAnalyser {
         } catch (RuntimeException e) {
             e.printStackTrace();
         }
-        return null;
+        return "HAPPY";
     }
 }
