@@ -1,12 +1,7 @@
 package com.moodanalyser;
 
 public class MoodAnalysisException extends RuntimeException{
-    final String mood;
-    public MoodAnalysisException(String message, String mood) {
+    public MoodAnalysisException(String message) {
         super(message);
-        this.mood = mood;
-    }
-    public String getMood() {
-        return mood;
     }
 }
